@@ -1,21 +1,24 @@
 <template>
-  <div class="grid-container">
-    <div class="grid"></div>
-    <div class="towns">
-      <div
-        v-for="town in gameStore.towns"
-        :key="town.id"
-        class="towns-item"
-        :style="town.position"
-        @click="toTown(town.id)"
-      >
-        <span>{{ town.name }}</span>
+  <PageLayout>
+    <div class="grid-container">
+      <div class="grid"></div>
+      <div class="towns">
+        <div
+          v-for="town in gameStore.towns"
+          :key="town.id"
+          class="towns-item"
+          :style="town.position"
+          @click="toTown(town.id)"
+        >
+          <span>{{ town.name }}</span>
+        </div>
       </div>
     </div>
-  </div>
+  </PageLayout>
 </template>
 
 <script setup lang="ts">
+import PageLayout from '@/components/layouts/PageLayout.vue'
 import { useGameStore } from '@/stores/gameStore'
 
 import { useRouter } from 'vue-router'
